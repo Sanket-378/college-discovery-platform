@@ -1,9 +1,13 @@
 com\collegefinder\repository\CollegeRepository.class
+com\collegefinder\service\CollegeService.class
 com\collegefinder\entity\Placement.class
 com\collegefinder\entity\Cutoff.class
 com\collegefinder\repository\CutoffRepository.class
 com\collegefinder\CollegeFinderApplication.class
 com\collegefinder\repository\ReviewRepository.class
+com\collegefinder\service\PredictorService.class
+com\collegefinder\exception\ResourceNotFoundException.class
+com\collegefinder\service\CompareService.class
 com\collegefinder\entity\Review.class
 com\collegefinder\repository\CourseRepository.class
 com\collegefinder\entity\Course.class
