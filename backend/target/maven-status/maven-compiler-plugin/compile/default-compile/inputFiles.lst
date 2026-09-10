@@ -1,4 +1,7 @@
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\CollegeFinderApplication.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\controller\ApiExceptionHandler.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\controller\CollegeController.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\controller\CompareController.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\entity\College.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\entity\Course.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\entity\Cutoff.java

@@ -8,8 +8,11 @@ com\collegefinder\repository\ReviewRepository.class
 com\collegefinder\service\PredictorService.class
 com\collegefinder\exception\ResourceNotFoundException.class
 com\collegefinder\service\CompareService.class
+com\collegefinder\controller\CollegeController.class
 com\collegefinder\entity\Review.class
 com\collegefinder\repository\CourseRepository.class
 com\collegefinder\entity\Course.class
+com\collegefinder\controller\ApiExceptionHandler.class
+com\collegefinder\controller\CompareController.class
 com\collegefinder\entity\College.class
 com\collegefinder\repository\PlacementRepository.class
