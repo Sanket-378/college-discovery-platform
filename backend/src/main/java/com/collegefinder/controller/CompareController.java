@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/colleges")
@@ -28,6 +27,9 @@ public class CompareController {
 
     @GetMapping("/compare")
     public List<CollegeResponse> compare(@RequestParam @NotBlank String ids) {
+        if (ids == null || ids.isBlank()) {
+            throw new IllegalArgumentException("At least one college ID is required");
+        }
         List<Long> collegeIds = Arrays.stream(ids.split(","))
                 .map(String::trim)
                 .map(this::parseCollegeId)

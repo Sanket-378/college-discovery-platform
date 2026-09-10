@@ -54,4 +54,30 @@ public class Review {
 
     protected Review() {
     }
+
+    public Review(College college, String reviewerName, Short graduationYear, BigDecimal rating,
+                  String title, String content) {
+        this.college = college;
+        this.reviewerName = reviewerName;
+        this.graduationYear = graduationYear;
+        this.rating = rating;
+        this.title = title;
+        this.content = content;
+        this.verified = false;
+        this.reviewedAt = LocalDate.now();
+        this.createdAt = Instant.now();
+        this.updatedAt = this.createdAt;
+    }
+
+    public Long getId() { return id; }
+    public College getCollege() { return college; }
+    public String getReviewerName() { return reviewerName; }
+    public Short getGraduationYear() { return graduationYear; }
+    public BigDecimal getRating() { return rating; }
+    public String getTitle() { return title; }
+    public String getContent() { return content; }
+    public Boolean getVerified() { return verified; }
+    public LocalDate getReviewedAt() { return reviewedAt; }
+    public Instant getCreatedAt() { return createdAt; }
+    public Instant getUpdatedAt() { return updatedAt; }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.collegefinder.CollegeFinderApplicationTests" time="10.931" tests="1" errors="0" skipped="0" failures="0" flakes="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.collegefinder.CompareServiceTest" time="0.155" tests="3" errors="0" skipped="0" failures="0" flakes="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -65,30 +65,7 @@
     <property name="java.class.version" value="67.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[college-finder] "/>
   </properties>
-  <testcase name="contextLoads" classname="com.collegefinder.CollegeFinderApplicationTests" time="8.711">
-    <system-out><![CDATA[18:10:33.612 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.collegefinder.CollegeFinderApplicationTests]: CollegeFinderApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-18:10:33.703 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.collegefinder.CollegeFinderApplication for test class com.collegefinder.CollegeFinderApplicationTests
-18:10:33.770 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.collegefinder.CollegeFinderApplicationTests]: CollegeFinderApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-18:10:33.772 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.collegefinder.CollegeFinderApplication for test class com.collegefinder.CollegeFinderApplicationTests
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
-
- :: Spring Boot ::                (v4.1.1)
-
-2026-09-10T18:10:34.166+05:30  INFO 6372 --- [college-finder] [           main] c.c.CollegeFinderApplicationTests        : Starting CollegeFinderApplicationTests using Java 23.0.2 with PID 6372 (started by SANKET in C:\Hackathon\college-discovery-platform\backend)
-2026-09-10T18:10:34.168+05:30  INFO 6372 --- [college-finder] [           main] c.c.CollegeFinderApplicationTests        : No active profile set, falling back to 1 default profile: "default"
-2026-09-10T18:10:35.557+05:30  INFO 6372 --- [college-finder] [           main] c.c.CollegeFinderApplicationTests        : Started CollegeFinderApplicationTests in 1.73 seconds (process running for 2.838)
-]]></system-out>
-    <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
-WARNING: A Java agent has been loaded dynamically (C:\Hackathon\college-discovery-platform\backend\.m2repo\net\bytebuddy\byte-buddy-agent\1.18.11\byte-buddy-agent-1.18.11.jar)
-WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
-WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
-WARNING: Dynamic loading of agents will be disallowed by default in a future release
-]]></system-err>
-  </testcase>
+  <testcase name="returnsRequestedCollegesInRequestedOrder" classname="com.collegefinder.CompareServiceTest" time="0.096"/>
+  <testcase name="rejectsEmptyDuplicateAndOversizedComparisons" classname="com.collegefinder.CompareServiceTest" time="0.003"/>
+  <testcase name="propagatesMissingCollege" classname="com.collegefinder.CompareServiceTest" time="0.007"/>
 </testsuite>
