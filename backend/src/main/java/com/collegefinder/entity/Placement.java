@@ -10,8 +10,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import org.hibernate.annotations.JdbcTypeCode;
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.sql.Types;
 
 @Entity
 @Table(name = "placements")
@@ -27,7 +29,7 @@ public class Placement {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumns({
-            @JoinColumn(name = "course_id", referencedColumnName = "id"),
+            @JoinColumn(name = "course_id", referencedColumnName = "id", insertable = false, updatable = false),
             @JoinColumn(name = "college_id", referencedColumnName = "college_id", insertable = false, updatable = false)
     })
     private Course course;
@@ -53,6 +55,7 @@ public class Placement {
     @Column(name = "highest_package", precision = 14, scale = 2)
     private BigDecimal highestPackage;
 
+    @JdbcTypeCode(Types.CHAR)
     @Column(nullable = false, length = 3)
     private String currency;
 

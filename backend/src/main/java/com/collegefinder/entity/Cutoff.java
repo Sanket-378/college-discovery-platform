@@ -27,7 +27,7 @@ public class Cutoff {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumns({
-            @JoinColumn(name = "course_id", referencedColumnName = "id"),
+            @JoinColumn(name = "course_id", referencedColumnName = "id", insertable = false, updatable = false),
             @JoinColumn(name = "college_id", referencedColumnName = "college_id", insertable = false, updatable = false)
     })
     private Course course;
