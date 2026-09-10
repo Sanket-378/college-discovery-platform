@@ -8,11 +8,9 @@ import com.collegefinder.entity.Review;
 import com.collegefinder.repository.ReviewRepository;
 import java.math.BigDecimal;
 import java.util.List;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.stereotype.Service;
 
 @Service
-@ConditionalOnBean(ReviewRepository.class)
 public class ReviewService {
 
     private final CollegeService collegeService;

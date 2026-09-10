@@ -1,4 +1,4 @@
-const API_BASE_URL = (window.__COLLEGE_API_BASE_URL__ || 'http://localhost:8080').replace(/\/$/, '');
+const API_BASE_URL = (window.__COLLEGE_API_BASE_URL__ || 'http://localhost:8081').replace(/\/$/, '');
 
 export async function apiRequest(path, options = {}) {
   const response = await fetch(`${API_BASE_URL}${path}`, {

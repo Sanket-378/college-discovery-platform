@@ -2,7 +2,6 @@ package com.collegefinder.controller;
 
 import com.collegefinder.dto.CollegeResponse;
 import com.collegefinder.dto.CourseResponse;
-import com.collegefinder.repository.CollegeRepository;
 import com.collegefinder.service.CollegeService;
 import com.collegefinder.service.CollegeSearchCriteria;
 import jakarta.validation.constraints.DecimalMax;
@@ -13,7 +12,6 @@ import jakarta.validation.constraints.Positive;
 import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.data.domain.Page;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/colleges")
-@ConditionalOnBean(CollegeRepository.class)
 @Validated
 public class CollegeController {
 

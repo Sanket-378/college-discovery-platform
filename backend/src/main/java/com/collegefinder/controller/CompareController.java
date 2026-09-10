@@ -1,12 +1,10 @@
 package com.collegefinder.controller;
 
 import com.collegefinder.dto.CollegeResponse;
-import com.collegefinder.repository.CollegeRepository;
 import com.collegefinder.service.CompareService;
 import jakarta.validation.constraints.NotBlank;
 import java.util.Arrays;
 import java.util.List;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/colleges")
-@ConditionalOnBean(CollegeRepository.class)
 @Validated
 public class CompareController {
 

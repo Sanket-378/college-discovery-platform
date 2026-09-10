@@ -5,11 +5,9 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.stereotype.Service;
 
 @Service
-@ConditionalOnBean(CollegeService.class)
 public class CompareService {
 
     public static final int MAX_COLLEGES_PER_COMPARISON = 4;
