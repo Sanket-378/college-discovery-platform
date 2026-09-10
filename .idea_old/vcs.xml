@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../CropCare" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../Plant-Disease-Predection" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../SmartHealthCare" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../sanket-portfolio" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../suvidha-kiosk-project" vcs="Git" />
+  </component>
+</project>
