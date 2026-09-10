@@ -1,1 +1,11 @@
+com\collegefinder\repository\CollegeRepository.class
+com\collegefinder\entity\Placement.class
+com\collegefinder\entity\Cutoff.class
+com\collegefinder\repository\CutoffRepository.class
 com\collegefinder\CollegeFinderApplication.class
+com\collegefinder\repository\ReviewRepository.class
+com\collegefinder\entity\Review.class
+com\collegefinder\repository\CourseRepository.class
+com\collegefinder\entity\Course.class
+com\collegefinder\entity\College.class
+com\collegefinder\repository\PlacementRepository.class

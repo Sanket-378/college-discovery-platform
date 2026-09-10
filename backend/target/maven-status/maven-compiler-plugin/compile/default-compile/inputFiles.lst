@@ -1,1 +1,11 @@
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\CollegeFinderApplication.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\entity\College.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\entity\Course.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\entity\Cutoff.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\entity\Placement.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\entity\Review.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\repository\CollegeRepository.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\repository\CourseRepository.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\repository\CutoffRepository.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\repository\PlacementRepository.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\repository\ReviewRepository.java
