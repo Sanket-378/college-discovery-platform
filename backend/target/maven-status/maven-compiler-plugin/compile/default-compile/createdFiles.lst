@@ -6,6 +6,7 @@ com\collegefinder\service\CompareService.class
 com\collegefinder\repository\PlacementRepository.class
 com\collegefinder\repository\CollegeRepository.class
 com\collegefinder\entity\Placement.class
+com\collegefinder\service\CollegeSearchCriteria.class
 com\collegefinder\dto\CollegeResponse.class
 com\collegefinder\entity\Cutoff.class
 com\collegefinder\repository\CutoffRepository.class
