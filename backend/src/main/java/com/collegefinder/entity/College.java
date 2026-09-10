@@ -1,6 +1,5 @@
 package com.collegefinder.entity;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,9 +11,6 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "colleges")
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY,
-        getterVisibility = JsonAutoDetect.Visibility.NONE,
-        isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 public class College {
 
     @Id
@@ -74,4 +70,23 @@ public class College {
 
     protected College() {
     }
+
+    public Long getId() { return id; }
+    public String getName() { return name; }
+    public String getSlug() { return slug; }
+    public String getDescription() { return description; }
+    public String getCity() { return city; }
+    public String getState() { return state; }
+    public String getCountry() { return country; }
+    public String getAddress() { return address; }
+    public String getWebsiteUrl() { return websiteUrl; }
+    public String getOwnershipType() { return ownershipType; }
+    public String getCollegeType() { return collegeType; }
+    public Short getEstablishedYear() { return establishedYear; }
+    public String getAccreditation() { return accreditation; }
+    public Integer getNirfRank() { return nirfRank; }
+    public BigDecimal getOverallRating() { return overallRating; }
+    public Integer getReviewCount() { return reviewCount; }
+    public Instant getCreatedAt() { return createdAt; }
+    public Instant getUpdatedAt() { return updatedAt; }
 }

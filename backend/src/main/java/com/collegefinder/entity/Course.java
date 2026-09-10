@@ -1,7 +1,5 @@
 package com.collegefinder.entity;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -16,9 +14,6 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "courses")
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY,
-        getterVisibility = JsonAutoDetect.Visibility.NONE,
-        isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 public class Course {
 
     @Id
@@ -27,7 +22,6 @@ public class Course {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "college_id", nullable = false)
-    @JsonIgnore
     private College college;
 
     @Column(nullable = false, length = 255)
@@ -64,4 +58,17 @@ public class Course {
 
     protected Course() {
     }
+
+    public Long getId() { return id; }
+    public String getName() { return name; }
+    public String getDegreeLevel() { return degreeLevel; }
+    public String getSpecialization() { return specialization; }
+    public BigDecimal getDurationYears() { return durationYears; }
+    public BigDecimal getTotalFees() { return totalFees; }
+    public String getCurrency() { return currency; }
+    public Integer getSeats() { return seats; }
+    public String getEligibility() { return eligibility; }
+    public String getDescription() { return description; }
+    public Instant getCreatedAt() { return createdAt; }
+    public Instant getUpdatedAt() { return updatedAt; }
 }
