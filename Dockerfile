@@ -1,32 +1,37 @@
+# =========================
 # Build stage
-FROM eclipse-temurin:23-jdk AS build
+# =========================
+FROM maven:3.9.11-eclipse-temurin-23 AS build
 
 WORKDIR /app
 
-# Copy backend Maven project
-COPY backend/college-finder/pom.xml .
-COPY backend/college-finder/.mvn .mvn
-COPY backend/college-finder/mvnw .
-
-# Make Maven wrapper executable
-RUN chmod +x mvnw
+# Copy Maven project
+COPY backend/pom.xml .
 
 # Download dependencies
-RUN ./mvnw dependency:go-offline -DskipTests
+RUN mvn dependency:go-offline -DskipTests
 
 # Copy source code
-COPY backend/college-finder/src ./src
+COPY backend/src ./src
 
-# Build application
-RUN ./mvnw clean package -DskipTests
+# Build Spring Boot application
+RUN mvn clean package -DskipTests
 
+
+# =========================
 # Runtime stage
+# =========================
 FROM eclipse-temurin:23-jre
 
 WORKDIR /app
 
+# Copy generated Spring Boot JAR
 COPY --from=build /app/target/*.jar app.jar
+
+# Render provides PORT automatically.
+# Spring Boot will use 8081 if PORT is not provided.
+ENV PORT=8081
 
 EXPOSE 8081
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=${PORT}"]
