@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1e59794-8e0b-4932-a2f7-c2b94c40147f" name="Changes" comment="Fix production CORS" />
+    <list default="true" id="b1e59794-8e0b-4932-a2f7-c2b94c40147f" name="Changes" comment="&quot;Fix production CORS&quot;">
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/collegefinder/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/collegefinder/config/WebConfig.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1789152466868</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="&quot;Fix production CORS&quot;">
+      <option name="closed" value="true" />
+      <created>1789152971759</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1789152971759</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -134,6 +144,7 @@
     <MESSAGE value="Fix CORS for GitHub Pages" />
     <MESSAGE value="Fix predictor CORS for GitHub Pages" />
     <MESSAGE value="Fix production CORS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix production CORS" />
+    <MESSAGE value="&quot;Fix production CORS&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Fix production CORS&quot;" />
   </component>
 </project>
