@@ -1,35 +1,25 @@
-# ==========================================
-# Stage 1: Build Spring Boot application
-# ==========================================
-FROM maven:3.9.9-eclipse-temurin-17 AS builder
+FROM eclipse-temurin:21-jdk-alpine AS build
 
 WORKDIR /app
 
-# Copy backend Maven configuration
-COPY backend/pom.xml .
+COPY backend/college-finder/pom.xml .
+COPY backend/college-finder/mvnw .
+COPY backend/college-finder/.mvn .mvn
 
-# Download dependencies first for better Docker caching
-RUN mvn dependency:go-offline -B
+RUN chmod +x mvnw
 
-# Copy backend source code
-COPY backend/src ./src
+RUN ./mvnw dependency:go-offline
 
-# Build Spring Boot JAR
-RUN mvn clean package -DskipTests
+COPY backend/college-finder/src src
 
+RUN ./mvnw clean package -DskipTests
 
-# ==========================================
-# Stage 2: Run Spring Boot application
-# ==========================================
-FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR /app
 
-# Copy generated JAR from builder
-COPY --from=builder /app/target/*.jar app.jar
+COPY --from=build /app/target/*.jar app.jar
 
-# Render provides the PORT environment variable.
-# 8081 is used locally if PORT is not provided.
 EXPOSE 8081
 
-ENTRYPOINT ["sh", "-c", "java -Dserver.port=${PORT:-8081} -jar app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
