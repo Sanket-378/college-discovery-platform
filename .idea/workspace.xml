@@ -4,17 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1e59794-8e0b-4932-a2f7-c2b94c40147f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Home.js" afterDir="false" />
+    <list default="true" id="b1e59794-8e0b-4932-a2f7-c2b94c40147f" name="Changes" comment="Clear frontend isseu">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/collegefinder/controller/PredictionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/collegefinder/dto/PredictionRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/collegefinder/dto/PredictionResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/collegefinder/service/PredictionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/maven-settings-local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/db/migration/V1__create_college_discovery_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/db/migration/V1__create_college_discovery_schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,6 +62,19 @@
       <option name="presentableId" value="Default" />
       <updated>1789030570906</updated>
     </task>
+    <task id="LOCAL-00001" summary="Clear frontend isseu">
+      <option name="closed" value="true" />
+      <created>1789109770847</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1789109770847</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Clear frontend isseu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clear frontend isseu" />
   </component>
 </project>

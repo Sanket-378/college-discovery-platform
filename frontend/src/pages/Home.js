@@ -168,116 +168,116 @@ export function homePage() {
       </div>
     </section>
 
-    <!-- PREDICTOR -->
-    <section class="predictor-section" id="predictor-form">
-      <div class="predictor-wrapper">
+   <!-- PREDICTOR -->
+   <section class="predictor-section" id="predictor-form">
+     <div class="predictor-wrapper">
 
-        <div class="predictor-copy">
-          <span class="home-eyebrow">SMART COLLEGE PREDICTOR</span>
+       <div class="predictor-copy">
+         <span class="home-eyebrow">SMART COLLEGE PREDICTOR</span>
 
-          <h2>
-            Your rank.
-            <span>Your possibilities.</span>
-          </h2>
+         <h2>
+           Your rank.
+           <span>Your possibilities.</span>
+         </h2>
 
-          <p>
-            Tell us about your entrance exam and rank. CampusCompass
-            will match you with colleges using transparent cutoff-based
-            logic.
-          </p>
+         <p>
+           Tell us about your entrance exam and rank. CampusCompass
+           will match you with colleges using transparent cutoff-based
+           logic.
+         </p>
 
-          <div class="predictor-points">
-            <div>
-              <span>✓</span>
-              <p>Transparent recommendations</p>
-            </div>
+         <div class="predictor-points">
+           <div>
+             <span>✓</span>
+             <p>Transparent recommendations</p>
+           </div>
 
-            <div>
-              <span>✓</span>
-              <p>Good, Moderate & Ambitious categories</p>
-            </div>
+           <div>
+             <span>✓</span>
+             <p>Good, Moderate & Ambitious categories</p>
+           </div>
 
-            <div>
-              <span>✓</span>
-              <p>Dataset-driven matching</p>
-            </div>
-          </div>
-        </div>
+           <div>
+             <span>✓</span>
+             <p>Dataset-driven matching</p>
+           </div>
+         </div>
+       </div>
 
-        <div class="predictor-card">
+       <div class="predictor-card">
 
-          <div class="predictor-card-header">
-            <span class="predictor-icon">🎯</span>
+         <div class="predictor-card-header">
+           <span class="predictor-icon">🎯</span>
 
-            <div>
-              <h3>Find your colleges</h3>
-              <p>Enter your admission details</p>
-            </div>
-          </div>
+           <div>
+             <h3>Find your colleges</h3>
+             <p>Enter your admission details</p>
+           </div>
+         </div>
 
-          <form
-            id="predictor-ui-form"
-            onsubmit="event.preventDefault(); document.getElementById('predictor-message').textContent='Predictor backend will be connected in the next phase.';"
-          >
+         <form id="predictor-ui-form">
 
-            <div class="predictor-form-grid">
+           <div class="predictor-form-grid">
 
-              <label>
-                Exam
-                <select>
-                  <option>JEE Main</option>
-                  <option>MHT-CET</option>
-                  <option>NEET</option>
-                  <option>CUET</option>
-                </select>
-              </label>
+             <label>
+               Exam
+               <select name="exam">
+                 <option>JEE Main</option>
+                 <option>MHT-CET</option>
+                 <option>NEET</option>
+                 <option>CUET</option>
+               </select>
+             </label>
 
-              <label>
-                Rank
-                <input
-                  type="number"
-                  placeholder="e.g. 24500"
-                  min="1"
-                />
-              </label>
+             <label>
+               Rank
+               <input
+                 type="number"
+                 name="rank"
+                 placeholder="e.g. 24500"
+                 min="1"
+               />
+             </label>
 
-              <label>
-                Category
-                <select>
-                  <option>Open</option>
-                  <option>OBC</option>
-                  <option>SC</option>
-                  <option>ST</option>
-                  <option>EWS</option>
-                </select>
-              </label>
+             <label>
+               Category
+               <select name="category">
+                 <option>Open</option>
+                 <option>OBC</option>
+                 <option>SC</option>
+                 <option>ST</option>
+                 <option>EWS</option>
+               </select>
+             </label>
 
-              <label>
-                Preferred Location
-                <select>
-                  <option>Maharashtra</option>
-                  <option>Karnataka</option>
-                  <option>Delhi</option>
-                  <option>Telangana</option>
-                  <option>Rajasthan</option>
-                  <option>Any State</option>
-                </select>
-              </label>
+             <label>
+               Preferred Location
+               <select name="location">
+                 <option>Maharashtra</option>
+                 <option>Karnataka</option>
+                 <option>Delhi</option>
+                 <option>Telangana</option>
+                 <option>Rajasthan</option>
+                 <option>Any State</option>
+               </select>
+             </label>
 
-            </div>
+           </div>
 
-            <button class="predict-button" type="submit">
-              Predict Colleges
-              <span>→</span>
-            </button>
+           <button class="predict-button" type="submit">
+             Predict Colleges
+             <span>→</span>
+           </button>
 
-            <p id="predictor-message" class="predictor-message"></p>
+           <p id="predictor-message" class="predictor-message"></p>
 
-          </form>
+         </form>
 
-        </div>
-      </div>
-    </section>
+       </div>
+     </div>
+
+     <div id="home-predictor-results"></div>
+   </section>
 
     <!-- HOW IT WORKS -->
     <section class="home-section how-section">

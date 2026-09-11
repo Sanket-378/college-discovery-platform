@@ -3,10 +3,13 @@ C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\controller\ApiExceptionHandler.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\controller\CollegeController.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\controller\CompareController.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\controller\PredictionController.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\controller\ReviewController.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\dto\ApiErrorResponse.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\dto\CollegeResponse.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\dto\CourseResponse.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\dto\PredictionRequest.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\dto\PredictionResponse.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\dto\RatingResponse.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\dto\ReviewRequest.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\dto\ReviewResponse.java
@@ -24,5 +27,6 @@ C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\service\CollegeSearchCriteria.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\service\CollegeService.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\service\CompareService.java
+C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\service\PredictionService.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\service\PredictorService.java
 C:\Hackathon\college-discovery-platform\backend\src\main\java\com\collegefinder\service\ReviewService.java

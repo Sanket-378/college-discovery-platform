@@ -1,0 +1,5 @@
+com\collegefinder\service\PredictionService.class
+com\collegefinder\controller\PredictionController.class
+com\collegefinder\dto\PredictionRequest.class
+com\collegefinder\dto\PredictionResponse$CollegePrediction.class
+com\collegefinder\dto\PredictionResponse.class

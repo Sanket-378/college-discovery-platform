@@ -31,3 +31,8 @@ export const createReview = (id, review) => apiRequest(`/api/colleges/${id}/revi
   method: 'POST',
   body: JSON.stringify(review)
 });
+export const predictColleges = (prediction) =>
+  apiRequest('/api/predictor', {
+    method: 'POST',
+    body: JSON.stringify(prediction)
+  });

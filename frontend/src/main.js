@@ -5,8 +5,9 @@ const homeStyles = document.createElement('link');
 homeStyles.rel = 'stylesheet';
 homeStyles.href = '/src/pages/Home.css';
 document.head.appendChild(homeStyles);
+//mvn spring-boot:run "-Dspring-boot.run.arguments=--server.port=8081"
 
-import { compareColleges, createReview, getCollege, getColleges, getCourses, getRating, getReviews } from './api.js';
+import { compareColleges, createReview, getCollege, getColleges, getCourses, getRating, getReviews, predictColleges } from './api.js';
 
 const app = document.querySelector('#app');
 const state = { selected: new Set(), lastPage: null, detail: null };
@@ -187,7 +188,7 @@ function renderPredictor() {
     .querySelector('#predictor-form')
     .addEventListener('submit', handlePredictor);
 }
-function handlePredictor(event) {
+async function handlePredictor(event) {
   event.preventDefault();
 
   const form = event.target;
@@ -195,103 +196,40 @@ function handlePredictor(event) {
 
   const exam = data.get('exam');
   const rank = Number(data.get('rank'));
+  const category = data.get('category');
+  const location = data.get('location');
 
   if (!rank || rank <= 0) {
     return;
   }
 
-  /*
-   * Temporary demo data.
-   * Backend predictor logic will replace this later.
-   */
-
-  const colleges = [
-    {
-      name: 'College of Engineering Pune (COEP)',
-      city: 'Pune',
-      cutoff: 20000
-    },
-    {
-      name: 'Veermata Jijabai Technological Institute (VJTI)',
-      city: 'Mumbai',
-      cutoff: 22000
-    },
-    {
-      name: 'Walchand College of Engineering',
-      city: 'Sangli',
-      cutoff: 30000
-    },
-    {
-      name: 'Pune Institute of Computer Technology',
-      city: 'Pune',
-      cutoff: 35000
-    },
-    {
-      name: 'Pimpri Chinchwad College of Engineering',
-      city: 'Pune',
-      cutoff: 40000
-    },
-    {
-      name: 'Indian Institute of Technology Bombay',
-      city: 'Mumbai',
-      cutoff: 5000
-    }
-  ];
-
-  const good = [];
-  const moderate = [];
-  const ambitious = [];
-
-  colleges.forEach(college => {
-    if (rank <= college.cutoff) {
-      good.push(college);
-    } else if (rank <= college.cutoff * 1.5) {
-      moderate.push(college);
-    } else {
-      ambitious.push(college);
-    }
-  });
-
   const results = document.querySelector('#predictor-results');
+  results.innerHTML = loading('Finding colleges for your rank');
 
-  results.innerHTML = `
-    <div class="prediction-header">
-      <p class="eyebrow">PREDICTION RESULTS</p>
-      <h2>Colleges for rank ${rank.toLocaleString()}</h2>
-      <p>
-        Based on <strong>${escapeHtml(exam)}</strong> and your
-        current rank.
-      </p>
-    </div>
+  try {
+    const prediction = await predictColleges({ exam, rank, category, location });
 
-    ${predictionGroup(
-      '🟢',
-      'Good Chances',
-      'Colleges where your rank looks competitive.',
-      good
-    )}
+    results.innerHTML = `
+      <div class="prediction-header">
+        <p class="eyebrow">PREDICTION RESULTS</p>
+        <h2>Colleges for rank ${prediction.rank.toLocaleString()}</h2>
+        <p>Based on <strong>${escapeHtml(prediction.exam)}</strong> and your current rank.</p>
+      </div>
 
-    ${predictionGroup(
-      '🟡',
-      'Moderate Chances',
-      'Colleges where admission may be possible.',
-      moderate
-    )}
+      ${predictionGroup('🟢', 'Good Chances', 'Colleges where your rank looks competitive.', prediction.goodChances)}
+      ${predictionGroup('🟡', 'Moderate Chances', 'Colleges where admission may be possible.', prediction.moderateChances)}
+      ${predictionGroup('🔴', 'Ambitious', 'More competitive colleges that may be difficult.', prediction.ambitious)}
 
-    ${predictionGroup(
-      '🔴',
-      'Ambitious',
-      'More competitive colleges that may be difficult.',
-      ambitious
-    )}
-
-    <div class="prediction-note">
-      <strong>Important:</strong>
-      This is a rule-based estimate for demonstration purposes.
-      Actual admission depends on the year, category, counselling
-      round, seat availability and official cutoffs.
-    </div>
-  `;
+      <div class="prediction-note">
+        <strong>Important:</strong>
+        This is a rule-based estimate for demonstration purposes.
+        Actual admission depends on the year, category, counselling
+        round, seat availability and official cutoffs.
+      </div>
+    `;
+  } catch (error) {
+    results.innerHTML = errorState(error);
+  }
 }
 function predictionGroup(icon, title, description, colleges) {
   return `
@@ -339,6 +277,53 @@ async function renderCompare() {
 }
 function renderHome() {
   shell(homePage(), 'home');
+
+  const form = document.querySelector('#predictor-ui-form');
+  if (form) form.addEventListener('submit', handleHomePredictor);
+}
+
+async function handleHomePredictor(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const data = new FormData(form);
+
+  const exam = data.get('exam');
+  const rank = Number(data.get('rank'));
+  const category = data.get('category');
+  const location = data.get('location');
+
+  const message = document.querySelector('#predictor-message');
+  const results = document.querySelector('#home-predictor-results');
+
+  if (!rank || rank <= 0) {
+    message.textContent = 'Please enter a valid rank.';
+    message.className = 'predictor-message error-text';
+    return;
+  }
+
+  message.textContent = 'Finding colleges…';
+  message.className = 'predictor-message';
+  results.innerHTML = '';
+
+  try {
+    const prediction = await predictColleges({ exam, rank, category, location });
+
+    message.textContent = '';
+    results.innerHTML = `
+      <div class="prediction-header">
+        <p class="eyebrow">PREDICTION RESULTS</p>
+        <h2>Colleges for rank ${prediction.rank.toLocaleString()}</h2>
+        <p>Based on <strong>${escapeHtml(prediction.exam)}</strong> and your current rank.</p>
+      </div>
+      ${predictionGroup('🟢', 'Good Chances', 'Colleges where your rank looks competitive.', prediction.goodChances)}
+      ${predictionGroup('🟡', 'Moderate Chances', 'Colleges where admission may be possible.', prediction.moderateChances)}
+      ${predictionGroup('🔴', 'Ambitious', 'More competitive colleges that may be difficult.', prediction.ambitious)}
+    `;
+  } catch (error) {
+    message.textContent = error.message;
+    message.className = 'predictor-message error-text';
+  }
 }
 function route() {
   const parts = location.hash.replace(/^#\/?/, '').split('/');
