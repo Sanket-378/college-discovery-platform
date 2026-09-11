@@ -159,10 +159,10 @@ export function homePage() {
             type="button"
             onclick="document.getElementById('predictor-form').scrollIntoView({behavior:'smooth'})"
           >
-            Try Predictor →
+            start Predictor →
           </button>
 
-          <span class="coming-soon">Backend coming soon</span>
+
         </article>
 
       </div>
