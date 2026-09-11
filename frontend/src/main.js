@@ -1,3 +1,11 @@
+import { homePage } from './pages/Home.js';
+
+// Load Home.css as a real stylesheet (no bundler here to handle CSS imports)
+const homeStyles = document.createElement('link');
+homeStyles.rel = 'stylesheet';
+homeStyles.href = '/src/pages/Home.css';
+document.head.appendChild(homeStyles);
+
 import { compareColleges, createReview, getCollege, getColleges, getCourses, getRating, getReviews } from './api.js';
 
 const app = document.querySelector('#app');
@@ -7,13 +15,40 @@ function escapeHtml(value = '') {
   return String(value).replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char]));
 }
 
-function shell(content, active = 'discover') {
-  app.innerHTML = `<header class="topbar"><a class="brand" href="#/">Campus<span>Compass</span></a>
-    <nav><a class="nav-link ${active === 'discover' ? 'active' : ''}" href="#/">Discover</a>
-    <a class="nav-link ${active === 'compare' ? 'active' : ''}" href="#/compare">Compare <b id="compare-count">${state.selected.size}</b></a></nav></header>
-    <main class="page">${content}</main><footer>Find the place where your next chapter begins.</footer>`;
-}
+function shell(content, active = 'home') {
+  app.innerHTML = `
+    <header class="topbar">
+      <a class="brand" href="#/">Campus<span>Compass</span></a>
 
+      <nav>
+        <a class="nav-link ${active === 'home' ? 'active' : ''}" href="#/">Home</a>
+        <a class="nav-link ${active === 'discover' ? 'active' : ''}" href="#/discover">
+          Discover
+        </a>
+        <a class="nav-link ${active === 'compare' ? 'active' : ''}" href="#/compare">
+          Compare <b id="compare-count">${state.selected.size}</b>
+        </a>
+      </nav>
+    </header>
+
+    <main class="page">
+      ${content}
+    </main>
+
+    <footer>
+      <div>
+        <strong>CampusCompass</strong>
+        <p>Find the place where your next chapter begins.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#/">Home</a>
+        <a href="#/discover">Discover</a>
+        <a href="#/compare">Compare</a>
+        <a href="#/predictor">College Predictor</a>
+      </div>
+    </footer>
+  `;
+}
 function loading(title = 'Loading') { return `<div class="state-card"><div class="spinner"></div><p>${title}…</p></div>`; }
 function errorState(error) { return `<div class="state-card error"><strong>Something went wrong</strong><p>${escapeHtml(error.message || error)}</p><button class="button secondary" data-action="retry">Try again</button></div>`; }
 function emptyState(text) { return `<div class="state-card"><h3>No colleges found</h3><p>${escapeHtml(text)}</p></div>`; }
@@ -76,12 +111,249 @@ async function submitReview(event, id) {
   event.preventDefault(); const form = event.target; const message = document.querySelector('#review-message'); const button = form.querySelector('button'); button.disabled = true; message.textContent = 'Posting…';
   try { await createReview(id, Object.fromEntries(new FormData(form))); message.textContent = 'Review posted. Thank you!'; form.reset(); } catch (error) { message.textContent = error.message; message.className = 'form-message error-text'; } finally { button.disabled = false; }
 }
+function renderPredictor() {
+  shell(`
+    <section class="predictor-hero">
+      <p class="eyebrow">SMART COLLEGE PREDICTOR</p>
 
+      <h1>Find colleges that match your rank.</h1>
+
+      <p>
+        Enter your entrance exam, rank and preferences to discover
+        colleges where you may have good, moderate or ambitious chances.
+      </p>
+    </section>
+
+    <section class="predictor-section">
+
+      <form id="predictor-form" class="predictor-form">
+
+        <div class="form-group">
+          <label>Entrance Exam</label>
+          <select name="exam" required>
+            <option value="">Select exam</option>
+            <option value="JEE Main">JEE Main</option>
+            <option value="MHT CET">MHT CET</option>
+            <option value="NEET">NEET</option>
+            <option value="BITSAT">BITSAT</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Your Rank</label>
+          <input
+            type="number"
+            name="rank"
+            min="1"
+            placeholder="e.g. 24500"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Category</label>
+          <select name="category">
+            <option value="Open">Open</option>
+            <option value="OBC">OBC</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Preferred Location</label>
+          <select name="location">
+            <option value="">Any location</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Rajasthan">Rajasthan</option>
+          </select>
+        </div>
+
+        <button class="button predictor-button" type="submit">
+          🎯 Predict Colleges
+        </button>
+
+      </form>
+
+      <div id="predictor-results"></div>
+
+    </section>
+  `, 'predictor');
+
+  document
+    .querySelector('#predictor-form')
+    .addEventListener('submit', handlePredictor);
+}
+function handlePredictor(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const data = new FormData(form);
+
+  const exam = data.get('exam');
+  const rank = Number(data.get('rank'));
+
+  if (!rank || rank <= 0) {
+    return;
+  }
+
+  /*
+   * Temporary demo data.
+   * Backend predictor logic will replace this later.
+   */
+
+  const colleges = [
+    {
+      name: 'College of Engineering Pune (COEP)',
+      city: 'Pune',
+      cutoff: 20000
+    },
+    {
+      name: 'Veermata Jijabai Technological Institute (VJTI)',
+      city: 'Mumbai',
+      cutoff: 22000
+    },
+    {
+      name: 'Walchand College of Engineering',
+      city: 'Sangli',
+      cutoff: 30000
+    },
+    {
+      name: 'Pune Institute of Computer Technology',
+      city: 'Pune',
+      cutoff: 35000
+    },
+    {
+      name: 'Pimpri Chinchwad College of Engineering',
+      city: 'Pune',
+      cutoff: 40000
+    },
+    {
+      name: 'Indian Institute of Technology Bombay',
+      city: 'Mumbai',
+      cutoff: 5000
+    }
+  ];
+
+  const good = [];
+  const moderate = [];
+  const ambitious = [];
+
+  colleges.forEach(college => {
+    if (rank <= college.cutoff) {
+      good.push(college);
+    } else if (rank <= college.cutoff * 1.5) {
+      moderate.push(college);
+    } else {
+      ambitious.push(college);
+    }
+  });
+
+  const results = document.querySelector('#predictor-results');
+
+  results.innerHTML = `
+    <div class="prediction-header">
+      <p class="eyebrow">PREDICTION RESULTS</p>
+      <h2>Colleges for rank ${rank.toLocaleString()}</h2>
+      <p>
+        Based on <strong>${escapeHtml(exam)}</strong> and your
+        current rank.
+      </p>
+    </div>
+
+    ${predictionGroup(
+      '🟢',
+      'Good Chances',
+      'Colleges where your rank looks competitive.',
+      good
+    )}
+
+    ${predictionGroup(
+      '🟡',
+      'Moderate Chances',
+      'Colleges where admission may be possible.',
+      moderate
+    )}
+
+    ${predictionGroup(
+      '🔴',
+      'Ambitious',
+      'More competitive colleges that may be difficult.',
+      ambitious
+    )}
+
+    <div class="prediction-note">
+      <strong>Important:</strong>
+      This is a rule-based estimate for demonstration purposes.
+      Actual admission depends on the year, category, counselling
+      round, seat availability and official cutoffs.
+    </div>
+  `;
+}
+function predictionGroup(icon, title, description, colleges) {
+  return `
+    <section class="prediction-group">
+
+      <div class="prediction-group-heading">
+        <div>
+          <h2>${icon} ${title}</h2>
+          <p>${description}</p>
+        </div>
+
+        <span>${colleges.length}</span>
+      </div>
+
+      ${
+        colleges.length
+          ? `<div class="prediction-list">
+              ${colleges.map(college => `
+                <article class="prediction-card">
+                  <div>
+                    <h3>${escapeHtml(college.name)}</h3>
+                    <p>📍 ${escapeHtml(college.city)}</p>
+                  </div>
+
+                  <span>
+                    Cutoff ~ ${college.cutoff.toLocaleString()}
+                  </span>
+                </article>
+              `).join('')}
+            </div>`
+          : `
+            <div class="empty-prediction">
+              No colleges in this category for the selected rank.
+            </div>
+          `
+      }
+
+    </section>
+  `;
+}
 async function renderCompare() {
   shell(`<a class="back-link" href="#/">← Back to discovery</a><section class="page-heading"><p class="eyebrow">SIDE BY SIDE</p><h1>Compare colleges</h1><p>Choose up to four colleges from discovery to compare their key details.</p></section><div id="compare-results">${state.selected.size ? loading('Building comparison') : emptyState('Select colleges from the discovery page first.')}</div>`, 'compare');
   if (!state.selected.size) return;
   try { const colleges = await compareColleges([...state.selected]); document.querySelector('#compare-results').innerHTML = `<div class="compare-grid">${colleges.map(c => `<article class="compare-card"><h2>${escapeHtml(c.name)}</h2><p class="location">${escapeHtml([c.city, c.state].filter(Boolean).join(', '))}</p><dl class="compare-facts"><div><dt>Rating</dt><dd>${stars(c.overallRating)}</dd></div><div><dt>Type</dt><dd>${escapeHtml(c.collegeType || '—')}</dd></div><div><dt>Ownership</dt><dd>${escapeHtml(c.ownershipType || '—')}</dd></div><div><dt>Established</dt><dd>${c.establishedYear || '—'}</dd></div><div><dt>NIRF rank</dt><dd>${c.nirfRank || '—'}</dd></div><div><dt>Reviews</dt><dd>${c.reviewCount ?? 0}</dd></div></dl><a class="text-link" href="#/college/${c.id}">Open profile →</a></article>`).join('')}</div>`; } catch (error) { document.querySelector('#compare-results').innerHTML = errorState(error); }
 }
+function renderHome() {
+  shell(homePage(), 'home');
+}
+function route() {
+  const parts = location.hash.replace(/^#\/?/, '').split('/');
 
-function route() { const parts = location.hash.replace(/^#\/?/, '').split('/'); if (parts[0] === 'college' && parts[1]) renderDetail(parts[1]); else if (parts[0] === 'compare') renderCompare(); else renderDiscover(); }
-window.addEventListener('hashchange', route); route();
+  if (parts[0] === 'college' && parts[1]) {
+    renderDetail(parts[1]);
+  } else if (parts[0] === 'compare') {
+    renderCompare();
+  } else if (parts[0] === 'discover') {
+    renderDiscover();
+  } else if (parts[0] === 'predictor') {
+    renderPredictor();
+  } else {
+    renderHome();
+  }
+}
+window.addEventListener('hashchange', route);
+route();
