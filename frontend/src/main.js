@@ -3,7 +3,7 @@ import { homePage } from './pages/Home.js';
 // Load Home.css as a real stylesheet (no bundler here to handle CSS imports)
 const homeStyles = document.createElement('link');
 homeStyles.rel = 'stylesheet';
-homeStyles.href = '/src/pages/Home.css';
+homeStyles.href = './src/pages/Home.css';
 document.head.appendChild(homeStyles);
 //mvn spring-boot:run "-Dspring-boot.run.arguments=--server.port=8081"
 
