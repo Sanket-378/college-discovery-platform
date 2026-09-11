@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1e59794-8e0b-4932-a2f7-c2b94c40147f" name="Changes" comment="Fix predictor CORS for GitHub Pages" />
+    <list default="true" id="b1e59794-8e0b-4932-a2f7-c2b94c40147f" name="Changes" comment="Fix production CORS" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1789152345297</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fix production CORS">
+      <option name="closed" value="true" />
+      <created>1789152466868</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1789152466868</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -125,6 +133,7 @@
     <MESSAGE value="&quot;Fix frontend GitHub Pages deployment&quot;" />
     <MESSAGE value="Fix CORS for GitHub Pages" />
     <MESSAGE value="Fix predictor CORS for GitHub Pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix predictor CORS for GitHub Pages" />
+    <MESSAGE value="Fix production CORS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix production CORS" />
   </component>
 </project>
