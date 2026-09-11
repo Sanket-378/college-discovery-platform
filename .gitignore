@@ -1,0 +1,46 @@
+# ================================
+# Node.js
+# ================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ================================
+# Frontend build output
+# ================================
+frontend/dist/
+
+# ================================
+# Environment variables / secrets
+# ================================
+.env
+.env.*
+!.env.example
+
+# ================================
+# IntelliJ IDEA
+# ================================
+.idea/
+*.iml
+
+# ================================
+# Java / Maven
+# ================================
+backend/college-finder/target/
+*.class
+
+# Maven wrapper generated files/cache
+backend/college-finder/.mvn/wrapper/*.jar
+
+# ================================
+# OS files
+# ================================
+.DS_Store
+Thumbs.db
+
+# ================================
+# Logs
+# ================================
+*.log
