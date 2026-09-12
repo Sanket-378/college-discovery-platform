@@ -281,13 +281,16 @@ function predictionGroup(icon, title, description, colleges) {
                     </div>
                   </div>
 
-                  <a
-                    class="prediction-card-footer"
-                    href="#/college/${college.id}"
-                  >
-                    <span>View college profile</span>
-                    <span class="prediction-arrow">→</span>
-                  </a>
+                                    ${
+                                      college.id != null
+                                        ? `<a class="prediction-card-footer" href="#/college/${college.id}">
+                                            <span>View college profile</span>
+                                            <span class="prediction-arrow">→</span>
+                                          </a>`
+                                        : `<div class="prediction-card-footer prediction-card-footer-disabled">
+                                            <span>Profile not linked yet</span>
+                                          </div>`
+                                    }
 
                 </article>
               `).join('')}

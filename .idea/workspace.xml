@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1e59794-8e0b-4932-a2f7-c2b94c40147f" name="Changes" comment="enhance UI" />
+    <list default="true" id="b1e59794-8e0b-4932-a2f7-c2b94c40147f" name="Changes" comment="enhance Prediction UI">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1789209500944</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="enhance Prediction UI">
+      <option name="closed" value="true" />
+      <created>1789209868415</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1789209868415</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -161,6 +171,7 @@
     <MESSAGE value="&quot;Fix production CORS&quot;" />
     <MESSAGE value="&quot;Fix &#10;CORS&quot;" />
     <MESSAGE value="enhance UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="enhance UI" />
+    <MESSAGE value="enhance Prediction UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="enhance Prediction UI" />
   </component>
 </project>
