@@ -50,21 +50,28 @@ public class PredictionResponse {
 
     public static class CollegePrediction {
 
+        private Long id;
         private String name;
         private String city;
         private String state;
         private Integer cutoff;
 
         public CollegePrediction(
+                Long id,
                 String name,
                 String city,
                 String state,
                 Integer cutoff) {
 
+            this.id = id;
             this.name = name;
             this.city = city;
             this.state = state;
             this.cutoff = cutoff;
+        }
+
+        public Long getId() {
+            return id;
         }
 
         public String getName() {
