@@ -18,7 +18,7 @@ export function homePage() {
 
         <div class="hero-actions">
           <a href="#/discover" class="home-btn home-btn-primary">
-            Explore Colleges <span>→</span>
+            Explore Colleges
           </a>
 
            <a href="#/predictor" class="home-btn home-btn-secondary">
@@ -109,7 +109,7 @@ export function homePage() {
             rating and fees.
           </p>
 
-          <a href="#/discover">Search colleges →</a>
+          <a href="#/discover">Search colleges</a>
         </article>
 
         <article class="feature-card">
@@ -124,7 +124,7 @@ export function homePage() {
             establishment details and student reviews.
           </p>
 
-          <a href="#/discover">View colleges →</a>
+          <a href="#/discover">View colleges</a>
         </article>
 
         <article class="feature-card">
@@ -139,7 +139,7 @@ export function homePage() {
             information side by side.
           </p>
 
-          <a href="#/discover">Start comparing →</a>
+          <a href="#/discover">Start comparing</a>
         </article>
 
         <article class="feature-card predictor-feature" id="predictor">
@@ -159,7 +159,7 @@ export function homePage() {
             type="button"
             onclick="document.getElementById('predictor-form').scrollIntoView({behavior:'smooth'})"
           >
-            start Predictor →
+            start Predictor
           </button>
 
 
@@ -266,7 +266,6 @@ export function homePage() {
 
            <button class="predict-button" type="submit">
              Predict Colleges
-             <span>→</span>
            </button>
 
            <p id="predictor-message" class="predictor-message"></p>
@@ -351,7 +350,7 @@ export function homePage() {
           </p>
 
           <a href="#/discover" class="about-link">
-            Start exploring colleges →
+            Start exploring colleges
           </a>
         </div>
 
@@ -369,7 +368,7 @@ export function homePage() {
       </p>
 
       <a href="#/discover" class="home-btn home-btn-primary">
-        Explore Colleges →
+        Explore Colleges
       </a>
     </section>
   `;
