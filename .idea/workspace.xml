@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1e59794-8e0b-4932-a2f7-c2b94c40147f" name="Changes" comment="Remove bugs">
+    <list default="true" id="b1e59794-8e0b-4932-a2f7-c2b94c40147f" name="Changes" comment="enhance Prediction UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/collegefinder/dto/PredictionResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/collegefinder/dto/PredictionResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/collegefinder/repository/CollegeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/collegefinder/repository/CollegeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/collegefinder/service/PredictionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/collegefinder/service/PredictionService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,15 +160,7 @@
       <option name="project" value="LOCAL" />
       <updated>1789209868415</updated>
     </task>
-    <task id="LOCAL-00014" summary="Remove bugs">
-      <option name="closed" value="true" />
-      <created>1789210634933</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1789210634933</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -181,7 +175,6 @@
     <MESSAGE value="&quot;Fix &#10;CORS&quot;" />
     <MESSAGE value="enhance UI" />
     <MESSAGE value="enhance Prediction UI" />
-    <MESSAGE value="Remove bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="enhance Prediction UI" />
   </component>
 </project>
