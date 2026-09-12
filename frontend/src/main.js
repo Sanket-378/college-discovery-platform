@@ -227,6 +227,7 @@ async function handlePredictor(event) {
         round, seat availability and official cutoffs.
       </div>
     `;
+    attachPredictionCardListeners(results);
   } catch (error) {
     results.innerHTML = errorState(error);
   }
@@ -246,20 +247,49 @@ function predictionGroup(icon, title, description, colleges) {
 
       ${
         colleges.length
-          ? `<div class="prediction-list">
+          ? `
+            <div class="prediction-card-grid">
               ${colleges.map(college => `
-                <article class="prediction-card">
-                  <div>
-                    <h3>${escapeHtml(college.name)}</h3>
-                    <p>📍 ${escapeHtml(college.city)}</p>
+                <article
+                  class="prediction-card"
+                  data-prediction-college="${college.id}"
+                >
+
+                  <div class="prediction-card-top">
+                    <div class="prediction-college-icon">
+                      🎓
+                    </div>
+
+                    <div class="prediction-college-info">
+                      <h3>${escapeHtml(college.name)}</h3>
+                      <p>
+                        📍 ${escapeHtml(college.city || 'Location not available')}
+                      </p>
+                    </div>
                   </div>
 
-                  <span>
-                    Cutoff ~ ${college.cutoff.toLocaleString()}
-                  </span>
+                  <div class="prediction-card-details">
+                    <div class="prediction-detail">
+                      <span>Estimated Cutoff</span>
+                      <strong>
+                        ${
+                          college.cutoff != null
+                            ? college.cutoff.toLocaleString()
+                            : '—'
+                        }
+                      </strong>
+                    </div>
+                  </div>
+
+                  <div class="prediction-card-footer">
+                    <span>View college profile</span>
+                    <span class="prediction-arrow">→</span>
+                  </div>
+
                 </article>
               `).join('')}
-            </div>`
+            </div>
+          `
           : `
             <div class="empty-prediction">
               No colleges in this category for the selected rank.
@@ -269,6 +299,18 @@ function predictionGroup(icon, title, description, colleges) {
 
     </section>
   `;
+}
+function attachPredictionCardListeners(container) {
+  container
+    .querySelectorAll('[data-prediction-college]')
+    .forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.dataset.predictionCollege;
+        if (id) {
+          location.hash = `#/college/${id}`;
+        }
+      });
+    });
 }
 async function renderCompare() {
   shell(`<a class="back-link" href="#/">← Back to discovery</a><section class="page-heading"><p class="eyebrow">SIDE BY SIDE</p><h1>Compare colleges</h1><p>Choose up to four colleges from discovery to compare their key details.</p></section><div id="compare-results">${state.selected.size ? loading('Building comparison') : emptyState('Select colleges from the discovery page first.')}</div>`, 'compare');
