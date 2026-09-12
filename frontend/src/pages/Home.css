@@ -893,6 +893,9 @@
   color: #5146e5;
   font-size: 14px;
   font-weight: 700;
+
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .prediction-arrow {

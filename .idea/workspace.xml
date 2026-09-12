@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1e59794-8e0b-4932-a2f7-c2b94c40147f" name="Changes" comment="&quot;Fix &#10;CORS&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
-    </list>
+    <list default="true" id="b1e59794-8e0b-4932-a2f7-c2b94c40147f" name="Changes" comment="enhance UI" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1789153159327</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="enhance UI">
+      <option name="closed" value="true" />
+      <created>1789209500944</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1789209500944</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -155,6 +160,7 @@
     <MESSAGE value="Fix production CORS" />
     <MESSAGE value="&quot;Fix production CORS&quot;" />
     <MESSAGE value="&quot;Fix &#10;CORS&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Fix &#10;CORS&quot;" />
+    <MESSAGE value="enhance UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="enhance UI" />
   </component>
 </project>

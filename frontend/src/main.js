@@ -227,7 +227,7 @@ async function handlePredictor(event) {
         round, seat availability and official cutoffs.
       </div>
     `;
-    attachPredictionCardListeners(results);
+//    attachPredictionCardListeners(results);
   } catch (error) {
     results.innerHTML = errorState(error);
   }
@@ -281,10 +281,13 @@ function predictionGroup(icon, title, description, colleges) {
                     </div>
                   </div>
 
-                  <div class="prediction-card-footer">
+                  <a
+                    class="prediction-card-footer"
+                    href="#/college/${college.id}"
+                  >
                     <span>View college profile</span>
                     <span class="prediction-arrow">→</span>
-                  </div>
+                  </a>
 
                 </article>
               `).join('')}
